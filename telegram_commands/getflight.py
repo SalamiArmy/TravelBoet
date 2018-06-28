@@ -48,7 +48,7 @@ def get_airport_code(cityName):
                 .replace('<b>Airport list:</b><br/>', '')\
                 .replace('<br/>\n\t\t\t', '\n')\
                 .replace('\t', '')\
-                .replace('<br/>\', '')\
+                .replace('<br/>', '')\
                 .replace('<!-- /tomany -->', '')\
                 .replace('<!-- nomatch -->', '')\
                 .replace('<p align="CENTER"><b><a href="index.php">Search again?</a></b></p>', '')\
