@@ -45,14 +45,18 @@ def get_airport_code(cityName):
         else:
             airportCode = str(data.findAll('center')[0])\
                 .replace('<center>', '')\
-                .replace('<b>Airport list:</b><br/>', '')\
+                .replace('<b>Airport list:</b><br/>', 'Airport list:')\
                 .replace('<br/>\n\t\t\t', '\n')\
                 .replace('\t', '')\
                 .replace('<br/>', '')\
                 .replace('<!-- /tomany -->', '')\
                 .replace('<!-- nomatch -->', '')\
                 .replace('<p align="CENTER"><b><a href="index.php">Search again?</a></b></p>', '')\
-                .replace('</center>', '')
+                .replace('</center>', '')\
+                .replace('<b>Airport list:</b><br>', 'Airport list:')\
+                .replace('<br><br>', '')\
+                .replace('</br></br></br></br></br></br>', '')\
+                .replace('\n\n\n\n\n', '')
     return airportCode, error.replace('Here are the results of your search:', '')
 
 def get_flights(requestText):
