@@ -48,10 +48,10 @@ def get_airport_code(cityName):
                 .replace('<b>Airport list:</b><br/>', '')\
                 .replace('<br/>\n\t\t\t', '\n')\
                 .replace('\t', '')\
-                .replace('<br/>\', '')
-                .replace('<!-- /tomany -->', '')
-                .replace('\n<!-- nomatch -->', '')
-                .replace('<p align="CENTER"><b><a href="index.php">Search again?</a></b></p>', '')
+                .replace('<br/>\', '')\
+                .replace('<!-- /tomany -->', '')\
+                .replace('\n<!-- nomatch -->', '')\
+                .replace('<p align="CENTER"><b><a href="index.php">Search again?</a></b></p>', '')\
                 .replace('</center>', '')
     return airportCode, error.replace('Here are the results of your search:', '')
 
