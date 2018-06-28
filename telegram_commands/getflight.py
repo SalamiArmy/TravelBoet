@@ -44,9 +44,15 @@ def get_airport_code(cityName):
             airportCode = rawAirportCode[4:rawAirportCode.index(')<br/>')] if len(rawAirportCode) > 13 else ''
         else:
             airportCode = str(data.findAll('center')[0])\
-                .replace('<center>\n<b>Airport list:</b><br/>\n\t\t\n\t\t\t', '')\
+                .replace('<center>', '')\
+                .replace('<b>Airport list:</b><br/>', '')\
                 .replace('<br/>\n\t\t\t', '\n')\
-                .replace('<br/>\n<br/><br/>\n<!-- /tomany -->\n<!-- nomatch -->\n<p align="CENTER"><b><a href="index.php">Search again?</a></b></p>\n</center>', '')
+                .replace('\t', '')\
+                .replace('<br/>\', '')
+                .replace('<!-- /tomany -->', '')
+                .replace('\n<!-- nomatch -->', '')
+                .replace('<p align="CENTER"><b><a href="index.php">Search again?</a></b></p>', '')
+                .replace('</center>', '')
     return airportCode, error.replace('Here are the results of your search:', '')
 
 def get_flights(requestText):
