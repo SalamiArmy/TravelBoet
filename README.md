@@ -17,7 +17,7 @@ Go to https://console.developers.google.com and create a Google App Engine proje
 4. Update {Your Telegram Bot ID here} in bot_keys.ini 
 
 
-Finally go to https://{GOOGLE APP ENGINE PROJECT ID}.appspot.com/set_webhook?url=https://{GOOGLE APP ENGINE PROJECT ID}.appspot.com/webhook (replace both {GOOGLE APP ENGINE PROJECT ID}s with the Google App Engine Project ID) to tell Telegram where to send web hooks. This is all that is required to setup web hooks, you do not need to tell the Bot Father anything about web hooks.
+Finally go to https://{GOOGLE APP ENGINE PROJECT ID}.appspot.com/telegram_webhook?url=https://{GOOGLE APP ENGINE PROJECT ID}.appspot.com/telegram_webhook (replace both {GOOGLE APP ENGINE PROJECT ID}s with the Google App Engine Project ID) to tell Telegram where to send web hooks. This is all that is required to setup web hooks, you do not need to tell the Bot Father anything about web hooks.
 
 ### Why the name TravelBoet?
 Boet is Afrikaans for brother.
