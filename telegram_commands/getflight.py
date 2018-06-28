@@ -50,7 +50,7 @@ def get_airport_code(cityName):
                 .replace('\t', '')\
                 .replace('<br/>\', '')\
                 .replace('<!-- /tomany -->', '')\
-                .replace('\n<!-- nomatch -->', '')\
+                .replace('<!-- nomatch -->', '')\
                 .replace('<p align="CENTER"><b><a href="index.php">Search again?</a></b></p>', '')\
                 .replace('</center>', '')
     return airportCode, error.replace('Here are the results of your search:', '')
