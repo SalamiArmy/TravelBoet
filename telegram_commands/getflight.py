@@ -39,11 +39,15 @@ def get_airport_code(cityName):
     data = BeautifulSoup(code, 'html.parser')
     error = data.find('b').string
     rawAirportCode = str(data.findAll('b')[1]) if error != 'No matching entries found...' else ''
+    parsedAirportCode = ''
     if rawAirportCode != '':
         if rawAirportCode.replace('<b>', '').replace('</b>', '') != cityName:
-            airportCode = rawAirportCode[4:rawAirportCode.index(')<br/>')] if rawAirportCode.index(')<br/>') > 4 else ''
+            if ')<br/>' in rawAirportCode:
+                parsedAirportCode = rawAirportCode[4:rawAirportCode.index(')<br/>')]
+            elif ')<br>' in rawAirportCode:
+                parsedAirportCode = rawAirportCode[4:rawAirportCode.index(')<br>')]
         else:
-            airportCode = str(data.findAll('center')[0])\
+            parsedAirportCode = str(data.findAll('center')[0])\
                 .replace('<center>', '')\
                 .replace('<b>Airport list:</b><br/>', 'Airport list:')\
                 .replace('<br/>\n\t\t\t', '\n')\
@@ -56,8 +60,10 @@ def get_airport_code(cityName):
                 .replace('<b>Airport list:</b><br>', 'Airport list:')\
                 .replace('<br><br>', '')\
                 .replace('</br></br></br></br></br></br>', '')\
-                .replace('\n\n\n\n\n', '')
-    return airportCode, error.replace('Here are the results of your search:', '')
+                .replace('\n\n\n\n\n', '')\
+                .replace('<br>', '')\
+                .replace('</br></br></br></br></br>', '')
+    return parsedAirportCode, error.replace('Here are the results of your search:', '')
 
 def get_flights(requestText):
     return 'https://www.google.co.uk/flights/?gl=ie#flt=' + requestText.replace(' ', '.') + ';c:EUR;e:1;sd:1;t:f;tt:o'
