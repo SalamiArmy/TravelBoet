@@ -28,7 +28,8 @@ def run(bot, chat_id, user, keyConfig, message, totalResults=1):
                                     text='I\'m sorry ' + (user if not user == '' else 'Dave') +
                                          ', I\'m afraid I can\'t quite place ' + requestText.encode('utf-8') + '.')
     bot.sendMessage(chat_id=chat_id,
-                    text='This bot has three modes:\nAirport Code Search: for example \'/getflight lucerne\' request returns \'QLJ\'.\nOne-Way Search: for example \'/getflight DUR DUB 1988-06-28\' request returns flights from DUR to DUB on 1988-06-28.\nRound-Trip Search: for example \'\getflight DUR DUB 1988-06-28 1988-07-17\' request returns flights with a return flight on 1988-07-17.')
+                    text='This bot has three modes:\n*Airport Code Search:* for example \'/getflight lucerne\' request returns \'QLJ\'.\n*One-Way Search:* for example \'/getflight DUR DUB 1988-06-28\' request returns flights from DUR to DUB on 1988-06-28.\n*Round-Trip Search:* for example \'\getflight DUR DUB 1988-06-28 1988-07-17\' request returns flights with a return flight on 1988-07-17.',
+                    parse_mode='markdown')
 
 
 
@@ -51,18 +52,16 @@ def get_airport_code(cityName):
                 .replace('<center>', '')\
                 .replace('<b>Airport list:</b><br/>', 'Airport list:')\
                 .replace('<br/>\n\t\t\t', '\n')\
-                .replace('\t', '')\
-                .replace('<br/>', '')\
                 .replace('<!-- /tomany -->', '')\
                 .replace('<!-- nomatch -->', '')\
                 .replace('<p align="CENTER"><b><a href="index.php">Search again?</a></b></p>', '')\
                 .replace('</center>', '')\
                 .replace('<b>Airport list:</b><br>', 'Airport list:')\
-                .replace('<br><br>', '')\
-                .replace('</br></br></br></br></br></br>', '')\
                 .replace('\n\n\n\n\n', '')\
                 .replace('<br>', '')\
-                .replace('</br></br></br></br></br>', '')
+                .replace('<br/>', '')\
+                .replace('</br>', '')\
+                .replace('\t', '')
     return parsedAirportCode, error.replace('Here are the results of your search:', '')
 
 def get_flights(requestText):
