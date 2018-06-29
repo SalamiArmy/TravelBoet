@@ -28,7 +28,7 @@ def run(bot, chat_id, user, keyConfig, message, totalResults=1):
                                     text='I\'m sorry ' + (user if not user == '' else 'Dave') +
                                          ', I\'m afraid I can\'t quite place ' + requestText.encode('utf-8') + '.')
     bot.sendMessage(chat_id=chat_id,
-                    text='This bot has three modes:\n*Airport Code Search:* for example \'/getflight lucerne\' request returns \'QLJ\'.\n*One-Way Search:* for example \'/getflight DUR DUB 1988-06-28\' request returns flights from DUR to DUB on 1988-06-28.\n*Round-Trip Search:* for example \'\getflight DUR DUB 1988-06-28 1988-07-17\' request returns flights with a return flight on 1988-07-17.',
+                    text='This bot has three modes:\n\n*Airport Code Search:* for example \'/getflight lucerne\' request returns \'QLJ\'.\n\n*One-Way Search:* for example \'/getflight DUR DUB 1988-06-28\' request returns flights from DUR to DUB on 1988-06-28.\n\n*Round-Trip Search:* for example \'\getflight DUR DUB 1988-06-28 1988-07-17\' request returns flights with a return flight on 1988-07-17.',
                     parse_mode='markdown')
 
 
