@@ -41,7 +41,7 @@ def get_airport_code(cityName):
     rawAirportCode = str(data.findAll('b')[1]) if error != 'No matching entries found...' else ''
     if rawAirportCode != '':
         if rawAirportCode.replace('<b>', '').replace('</b>', '') != cityName:
-            airportCode = rawAirportCode[4:rawAirportCode.index(')<br/>')] if len(rawAirportCode) > 13 else ''
+            airportCode = rawAirportCode[4:rawAirportCode.index(')<br/>')] if rawAirportCode.index(')<br/>') > 4 else ''
         else:
             airportCode = str(data.findAll('center')[0])\
                 .replace('<center>', '')\
