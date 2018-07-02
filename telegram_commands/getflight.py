@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 def run(bot, chat_id, user, keyConfig, message, totalResults=1):
     requestText = message.replace(bot.name, "").strip()
-    if (len(requestText) > 4 and requestText[3] == " " and
+    if (requestText != '' and len(requestText) > 4 and requestText[3] == " " and
                 len(requestText) > 8 and requestText[7] == " " and
                 len(requestText) > 13 and requestText[12] == "-" and
                 len(requestText) > 16 and requestText[15] == "-" and
@@ -15,14 +15,13 @@ def run(bot, chat_id, user, keyConfig, message, totalResults=1):
                 len(requestText) > 27 and requestText[26] == "-"):
         bot.sendMessage(chat_id=chat_id, text=get_returnflights(requestText), disable_web_page_preview=True)
         return True
-    else:
-        if (len(requestText) > 4 and requestText[3] == " " and
+    elif (requestText != '' and len(requestText) > 4 and requestText[3] == " " and
                     len(requestText) > 8 and requestText[7] == " " and
                     len(requestText) > 13 and requestText[12] == "-" and
                     len(requestText) > 16 and requestText[15] == "-"):
             bot.sendMessage(chat_id=chat_id, text=get_flights(requestText), disable_web_page_preview=True)
             return True
-        else:
+        elif (requestText != ''):
             airportCode, error = get_airport_code(requestText)
             if airportCode != '':
                 bot.sendMessage(chat_id=chat_id, text=airportCode)
