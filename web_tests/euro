@@ -3,7 +3,7 @@ import unittest
 
 import telegram
 
-import telegram_commands.euro as euro
+import web_commands.euro as euro
 
 
 class TestEuro(unittest.TestCase):
