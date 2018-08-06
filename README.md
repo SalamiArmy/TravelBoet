@@ -2,7 +2,7 @@
 ## A python bot for fast paced group chats about planning trips.
 
 ### What is TravelBoet?
-TravelBoet is a chat bot for telegram that can get information about flights.
+TravelBoet is a chat bot for telegram that can get information about flights, places and exchange rates.
 
 ### How does it work?
 TravelBoet will listen for all messages in a given chat (either directly with him or in a chat room which you invite him to) starting with "/getflight".
@@ -20,4 +20,4 @@ Go to https://console.developers.google.com and create a Google App Engine proje
 Finally go to https://{GOOGLE APP ENGINE PROJECT ID}.appspot.com/telegram_webhook?url=https://{GOOGLE APP ENGINE PROJECT ID}.appspot.com/telegram_webhook (replace both {GOOGLE APP ENGINE PROJECT ID}s with the Google App Engine Project ID) to tell Telegram where to send web hooks. This is all that is required to setup web hooks, you do not need to tell the Bot Father anything about web hooks.
 
 ### Why the name TravelBoet?
-Boet is Afrikaans for brother.
+Boet is Afrikaans for brother. Maybe Travel Boet can help you come to South Africa, home of the Afrikaans?
